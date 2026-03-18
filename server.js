@@ -5,9 +5,8 @@
 
 const express  = require("express");
 const cors     = require("cors");
-const { ApiError, Client, Environment } = require("squareup");
+const { ApiError, Client, Environment } = require("square");
 const { randomUUID } = require("crypto");
-
 const app = express();
 app.use(cors());
 app.use(express.json());
