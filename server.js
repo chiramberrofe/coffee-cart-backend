@@ -1,6 +1,7 @@
 const express  = require("express");
 const cors     = require("cors");
-const { Client } = require("square");
+const Square = require("square");
+const Client = Square.Client || Square.default?.Client || Object.values(Square).find(v => typeof v === "function" && v.name === "Client");
 const { randomUUID } = require("crypto");
 
 const app = express();
