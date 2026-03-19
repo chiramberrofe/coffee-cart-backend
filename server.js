@@ -140,6 +140,14 @@ app.get("/payment/:id", async (req, res) => {
   }
 });
 
+// ── Config (exposes public app settings) ─────────────────────────
+app.get("/config", (req, res) => {
+  res.json({
+    squareAppId: process.env.SQUARE_APP_ID || "",
+    env: process.env.SQUARE_ENV || "sandbox",
+  });
+});
+
 // ── Start ─────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Coffee Cart backend on port ${PORT} [${SQUARE_ENV}]`));
